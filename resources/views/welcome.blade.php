@@ -35,6 +35,12 @@
         @if (Route::has('login'))
             @auth
                 <a href="{{ url('/dashboard') }}" class="btn btn-custom">Dashboard</a>
+                
+                <!-- Logout Button -->
+                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-danger mt-3">Вийти</button>
+                </form>
             @else
                 <a href="{{ route('login') }}" class="btn btn-custom me-3">Log in</a>
                 @if (Route::has('register'))
